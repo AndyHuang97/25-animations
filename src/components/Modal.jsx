@@ -5,10 +5,13 @@ export default function Modal({ title, children, onClose }) {
   return createPortal(
     <>
       <div className='backdrop' onClick={onClose} />
-      <motion.dialog 
-      initial={{opacity: 0, y: -100}} // initial state when component is adedd to DOM
-      animate={{opacity: 1, y: 0}}
-      open className='modal'>
+      <motion.dialog
+        initial={{ opacity: 0, y: -100 }} // initial state when component is adedd to DOM
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 100 }}
+        open
+        className='modal'
+      >
         <h2>{title}</h2>
         {children}
       </motion.dialog>
