@@ -309,7 +309,7 @@ main {
   width: 30rem;
   max-width: 90%;
   z-index: 10;
-  animation: slide-up-fade-in 500ms ease-in-out forwards; /* forwards to keep the 100% state */
+  /* animation: slide-up-fade-in 500ms ease-in-out forwards; forwards to keep the 100% state */
 }
 
 /* use animation for cases where the component is not always rendered in the html,
