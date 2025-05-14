@@ -6,9 +6,14 @@ export default function Modal({ title, children, onClose }) {
     <>
       <div className='backdrop' onClick={onClose} />
       <motion.dialog
-        initial={{ opacity: 0, y: -100 }} // initial state when component is adedd to DOM
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 100 }}
+        variants={{
+          // custom identifiers
+          hidden: { opacity: 0, y: -100 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        initial='hidden' // initial state when component is adedd to DOM
+        animate='visible'
+        exit='hidden'
         open
         className='modal'
       >
