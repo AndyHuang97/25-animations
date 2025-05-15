@@ -28,7 +28,8 @@ export default function ChallengeItem({
   }
 
   return (
-    <li>
+    // layout will animate elements in a list, for example second element to first position
+    <motion.li layout>
       <article className='challenge-item'>
         <header>
           <img {...challenge.image} />
@@ -65,6 +66,6 @@ export default function ChallengeItem({
           )}
         </div>
       </article>
-    </li>
+    </motion.li>
   );
 }
