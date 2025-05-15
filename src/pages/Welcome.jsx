@@ -1,26 +1,49 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-import cityImg from '../assets/city.jpg';
-import heroImg from '../assets/hero.png';
+import cityImg from "../assets/city.jpg";
+import heroImg from "../assets/hero.png";
 
 export default function WelcomePage() {
+  const { scrollY } = useScroll();
+
+  const yCity = useTransform(scrollY, [0, 200], [0, -100]);
+  const opacityCity = useTransform(
+    scrollY,
+    [0, 200, 300, 500],
+    [1, 0.5, 0.5, 0]
+  );
+  const yHero = useTransform(scrollY, [0, 200], [0, -150]);
+  const opacityHero = useTransform(scrollY, [0, 300, 500], [1, 1, 0]);
+  const yText = useTransform(scrollY, [0, 200, 300, 500], [0, 50, 50, 500]);
+  const scaleText = useTransform(scrollY, [0, 300], [1, 1.5]);
+
   return (
     <>
-      <header id="welcome-header">
-        <div id="welcome-header-content">
+      <header id='welcome-header'>
+        <motion.div
+          id='welcome-header-content'
+          style={{ y: yText, scale: scaleText }}
+        >
           <h1>Ready for a challenge?</h1>
-          <Link id="cta-link" to="/challenges">
+          <Link id='cta-link' to='/challenges'>
             Get Started
           </Link>
-        </div>
-        <img
+        </motion.div>
+        <motion.img
           src={cityImg}
-          alt="A city skyline touched by sunlight"
-          id="city-image"
+          alt='A city skyline touched by sunlight'
+          id='city-image'
+          style={{ y: yCity, opacity: opacityCity }}
         />
-        <img src={heroImg} alt="A superhero wearing a cape" id="hero-image" />
+        <motion.img
+          src={heroImg}
+          alt='A superhero wearing a cape'
+          id='hero-image'
+          style={{ y: yHero, opacity: opacityHero }}
+        />
       </header>
-      <main id="welcome-content">
+      <main id='welcome-content'>
         <section>
           <h2>There&apos;s never been a better time.</h2>
           <p>
