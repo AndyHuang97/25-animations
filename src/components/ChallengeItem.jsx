@@ -29,7 +29,7 @@ export default function ChallengeItem({
 
   return (
     // layout will animate elements in a list, for example second element to first position
-    <motion.li layout>
+    <motion.li layout exit={{ y: -30, opacity: 0 }}>
       <article className='challenge-item'>
         <header>
           <img {...challenge.image} />
