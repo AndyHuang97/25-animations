@@ -68,7 +68,7 @@ export default function NewChallenge({ onDone }) {
                 hidden: { opacity: 0, scale: 0.5 },
                 visible: {
                   opacity: 1,
-                  scale: 1,
+                  scale: [2, 1], // use keyframes: steps to go through (max 2 for spring and inertia)
                   transition: { type: "spring" }, // this is a fix from Q&A
                 },
               }}
